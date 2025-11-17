@@ -14,7 +14,7 @@ class Config:
     - COLLECTION_NAME: Collection name for devices (default: "devices")
     """
     # Defaults enable running locally without providing env vars
-    MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+    MONGO_URI: str = os.getenv("MONGO_URI", "mongodb+srv://db_user:vettel%402012@cluster0.htz84wq.mongodb.net/network?retryWrites=true&w=majority")
     DB_NAME: str = os.getenv("DB_NAME", "network_device_manager")
     COLLECTION_NAME: str = os.getenv("COLLECTION_NAME", "devices")
 
