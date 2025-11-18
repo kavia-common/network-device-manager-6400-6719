@@ -1,0 +1,20 @@
+# Bandit configuration for FlaskBackend
+# - Recursively scan project while excluding virtualenvs, tests, and frontend/node artifacts
+# - Output reports in both txt and json via run_security.sh
+# - Skip rule B101 (assert used) to avoid false positives in tests or scaffolding
+# - Adjust (include/exclude) as needed per project evolution
+
+skips:
+  - B101  # assert_used
+
+exclude_dirs:
+  - venv
+  - .venv
+  - env
+  - .env
+  - tests
+  - node_modules
+  - interfaces  # generated docs
+
+# Use Bandit's default profiles; customize if needed
+# profiles: ["full"]

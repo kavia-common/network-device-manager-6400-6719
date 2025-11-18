@@ -1,5 +1,3 @@
-import pytest
-
 from app.utils import (
     validate_device_create,
     validate_device_update,

@@ -25,3 +25,24 @@ Run:
 - python run.py
 
 Make sure your MongoDB instance is reachable based on MONGO_URI (or the default localhost URI).
+
+## Security Scans (Bandit)
+
+We use Bandit for Python security scanning.
+
+Prerequisites:
+- Ensure dependencies are installed: `pip install -r requirements.txt`
+
+Run scans:
+- Text report:
+  - `bash run_security.sh`
+  - or `bandit -r . -c bandit.yaml -x venv,.venv,env,.env,tests,node_modules,interfaces -q -f txt -o bandit-report.txt`
+- JSON report:
+  - `bandit -r . -c bandit.yaml -x venv,.venv,env,.env,tests,node_modules,interfaces -q -f json -o bandit-report.json`
+
+Outputs:
+- `bandit-report.txt`
+- `bandit-report.json`
+
+Configuration:
+- See `bandit.yaml` for rule skips and directory exclusions. Currently skips B101 (assert) and ignores typical virtual env, tests, and node_modules.
